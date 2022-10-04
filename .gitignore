@@ -1,2 +1,3 @@
-.env
+mysite/.env
+.idea *
 .idea/vcs.xml
