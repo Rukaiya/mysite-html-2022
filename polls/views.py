@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
+from .models import Question, Choice
 
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Hello')
+    latest_questions = Question.objects.order_by('-pub_date')
+    context = {latest_questions: latest_questions}
+    return render(request, 'polls/index.html', context)
 
 
 def detail(request, question_id):
